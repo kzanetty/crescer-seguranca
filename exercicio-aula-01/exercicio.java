@@ -47,7 +47,7 @@ public class UsuarioRepository {
     }
   
 
-    // Forma desenvolvida pelo proprio postgres onde ele ira substituir todas aspas simples por aspas duplas.
+    // Forma desenvolvida pelo próprio  postgres onde ele ira substituir todas aspas simples por aspas duplas.
     public List<Usuario> buscarFormaNativaPostgres(String filtro) {
         filtro = sanatizarFiltroPostgres(filtro);
         var sqlString = "select * from usuario u where nome like '%" + filtro + "%'";
@@ -97,7 +97,7 @@ public class UsuarioRepository {
   
 
 
-    //Vamos utilizar o JPQL e parametrizar da forma adequada - O prorio hibernate utiliza o preparedStatement por baixo por panos nesse metodo.
+    //Vamos utilizar o JPQL e parametrizar da forma adequada - O próprio hibernate utiliza o preparedStatement por baixo por panos nesse método.
     public Usuario loginJPQL(UsuarioDto usuario) {
         var jpqlquery = "select u from Usuario u where u.email = :email and u.senha = :senha";
         var list = entityManager.createQuery(jpqlquery, Usuario.class)
@@ -117,7 +117,7 @@ public class UsuarioRepository {
     public interface UsuarioJpaRepository extends JpaRepository<Usuario, Long> {
         Usuario findByEmailAndSenha(String email, String senha);
     }
-    //Em uma classe de Service(?) nós fazemos uma injeção de dependencia dessa interface UsuarioJpaRepository e chamamos o método lá
+    //Em uma classe de Service(?) nós fazemos uma injeção de dependência dessa interface UsuarioJpaRepository e chamamos o método lá
     // O JpaRepository já tem por padrão medidas contra esse tipo de insegurança de SQl Injection.
     @PostMapping("login")
     public ResponseEntity<?> login(@RequestBody UsuarioDto usuarioDto, HttpServletResponse response) {
