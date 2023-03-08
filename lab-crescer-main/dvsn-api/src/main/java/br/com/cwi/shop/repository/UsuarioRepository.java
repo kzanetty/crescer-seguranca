@@ -67,6 +67,11 @@ public class UsuarioRepository {
 
     // -------------------------- Exemplos de como mitigar ameaças de SQL Injection -------------------------------
 
+    public List<Usuario> buscar(String filtro) {
+        var sqlString = "select * from usuario u where nome like '%" + filtro + "%'";
+        var query = entityManager.createNativeQuery(sqlString, Usuario.class);
+        return query.getResultList();
+    }
     /*
     // Forma 1 de mitigação - buscar - com escape - Podemos sanatizar utilizando um método que ira substituir todas aspas simples por aspas duplas.
     public List<Usuario> buscar(String filtro) {
@@ -79,6 +84,7 @@ public class UsuarioRepository {
         return filtro.replaceAll("'", "''");
     }
     */
+    /*
     // Forma 2 de mitigação - buscar - Forma desenvolvida pelo proprio postgres
     public List<Usuario> buscar(String filtro) {
         filtro = sanatizarFiltroPostgres(filtro);
@@ -95,6 +101,8 @@ public class UsuarioRepository {
             throw new RuntimeException(ex);
         }
     }
+     */
+
 
 
     /*

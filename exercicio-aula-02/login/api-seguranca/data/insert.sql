@@ -1,0 +1,3 @@
+insert into usuario(nome, email, telefone, senha, foto, funcao, criado_em, ativo)
+values ("Henrique", "henrique@cwi.com.br", "05551900223322", "??????????????????????????????", "https://i.pinimg.com/564x/0e/42/74/0e42749b5b7eaac1a9ceed721735a9fc.jpg", "ADMIN", CURRENT_TIMESTAMP, true)
+
