@@ -3,17 +3,14 @@ import { RouterProvider } from "react-router-dom";
 import { router } from "./router/index";
 import { GlobalUsuarioProvider } from "./context/usuario/usuario.context";
 import ToastAnimated from "./ui/components/toastr/toastr.component";
-import { Footer } from "./ui/screens/footer/footer";
-import { NavListComponent } from "./ui/components";
+import { Footer } from "./ui/components";
 
 function App() {
   return (
     <div className="App">
       <GlobalUsuarioProvider>
         <ToastAnimated />
-        <RouterProvider router={router}>
-          <NavListComponent />
-        </RouterProvider>
+        <RouterProvider router={router} />
         <Footer />
       </GlobalUsuarioProvider>
     </div>

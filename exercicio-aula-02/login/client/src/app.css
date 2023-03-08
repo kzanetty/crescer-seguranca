@@ -10,4 +10,10 @@ a:-webkit-any-link {
 
 body {
   height: 100vh;
+  background-color: #181a1b;
+}
+
+.label-input-edicao {
+  font-size: 15px;
+  font-weight: bold;
 }

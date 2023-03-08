@@ -1,5 +1,6 @@
 package br.com.cwi.apiseguranca.mapper;
 
+import br.com.cwi.apiseguranca.controller.request.AtualizarMeuPerfilRequest;
 import br.com.cwi.apiseguranca.controller.request.CriarUsuarioRequest;
 import br.com.cwi.apiseguranca.controller.response.UsuarioResponse;
 import br.com.cwi.apiseguranca.domain.Usuario;

@@ -30,7 +30,7 @@ export function LoginScreen() {
 
     return (
         <>
-            {/* <NavListComponent /> */}
+            <NavListComponent />
             <div className="container-login-screen">
                 <h1>Login</h1>
                 <div className="container-formulario-login-screen">
