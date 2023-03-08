@@ -22,16 +22,15 @@ export function LoginScreen() {
         }
     }
 
-
-    // useEffect(() => {
-    //     if (usuario) {
-    //         navigate('/profile')
-    //     }
-    // }, [usuario])
+    useEffect(() => {
+        if (usuario) {
+            navigate('/profile')
+        }
+    }, [usuario])
 
     return (
         <>
-            <NavListComponent />
+            {/* <NavListComponent /> */}
             <div className="container-login-screen">
                 <h1>Login</h1>
                 <div className="container-formulario-login-screen">
@@ -55,7 +54,6 @@ export function LoginScreen() {
                     <br />
                     <ButtonComponent onClick={handleLogar} texto="login" />
                 </div>
-
             </div>
         </>
     )

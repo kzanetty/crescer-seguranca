@@ -1,10 +1,11 @@
 .card-usuario {
   background-color: #fff;
-  height: 300px;
-  width: 500px;
+  height: 400px;
+  width: 700px;
   border-radius: 10px;
   align-items: center;
   justify-content: center;
+  border: 2px solid red;
 }
 
 .card-informacoes-usuario {

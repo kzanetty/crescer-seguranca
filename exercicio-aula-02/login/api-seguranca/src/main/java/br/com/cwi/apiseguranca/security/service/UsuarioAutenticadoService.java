@@ -1,10 +1,9 @@
 package br.com.cwi.apiseguranca.security.service;
 
-
 import br.com.cwi.apiseguranca.controller.response.UsuarioResponse;
-import br.com.cwi.apiseguranca.security.config.UsuarioSecurity;
 import br.com.cwi.apiseguranca.domain.Usuario;
 import br.com.cwi.apiseguranca.repository.UsuarioRepository;
+import br.com.cwi.apiseguranca.security.config.UsuarioSecurity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

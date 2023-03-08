@@ -13,7 +13,7 @@ export function NavListComponent() {
       showToast({ type: "error", message: "Você já saiu da sua conta." });
     } else {
       showToast({ type: "default", message: "Você saiu da sua conta. Até breve" });
-      // await logout.logout()
+      await logout.logout()
     }
   }
 

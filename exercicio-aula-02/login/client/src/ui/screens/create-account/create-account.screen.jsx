@@ -7,12 +7,12 @@ import './create-account.screen.css'
 import { useNavigate } from "react-router-dom";
 
 export function CreateAccountScreen() {
-    const [nome, setNome] = useState("teste1");
-    const [email, setEmail] = useState("teste1@cwi.com.br");
+    const [nome, setNome] = useState("soluco");
+    const [email, setEmail] = useState("soluco@cwi.com.br");
     const [senha, setSenha] = useState('12345');
     const [telefone, setApelido] = useState("testete");
     const [funcao, setDataNascimento] = useState("ADMIN");
-    const [foto, setImageUrl] = useState("imagem aqui");
+    const [foto, setImageUrl] = useState("https://i.pinimg.com/564x/e8/6d/67/e86d6749ea65c4a4d80918fe23c80d5b.jpg");
 
     const navigate = useNavigate()
 

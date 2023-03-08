@@ -1,23 +1,22 @@
-import { Link } from "react-router-dom";
 import './card-usuario.component.css'
 
 export function UsuarioComponent({ usuario }) {
     return (
         <div className="card-usuario">
-            <Link to={`../vikings/detalhar/${usuario?.id}`}>
-                <div className="card-informacoes-usuario">
-                    <div className="informacoes-texto-card-usuario">
-                        <p>{usuario?.nome}</p>
-                        <p>Apelido: {usuario?.apelido}</p>
-                        <p>{usuario?.email}</p>
-                        <p>{usuario?.dataNascimento}</p>
-                    </div>
-                    <div className="imagem-usuario">
-                        <img src={usuario?.imageUrl} alt="imagem de usuario" />
-                    </div>
+            <div className="card-informacoes-usuario">
+                <div className="informacoes-texto-card-usuario">
+                    <p>id: {usuario?.id}</p>
+                    <p>Nome: {usuario?.nome}</p>
+                    <p>Email: {usuario?.email}</p>
+                    <p>Telefone: {usuario?.telefone}</p>
+                    <p>Criando em: {usuario?.criadoEm}</p>
+                    <p>Atualizado em: {usuario?.atualizadoEm ? usuario.atualizadoEm : "Nunca atualizado"}</p>
+                    <p>Função: {usuario?.funcao}</p>
                 </div>
-            </Link>
-
+                <div className="imagem-usuario">
+                    <img src={usuario?.foto} alt="imagem de usuario" />
+                </div>
+            </div>
         </div>
     )
 }

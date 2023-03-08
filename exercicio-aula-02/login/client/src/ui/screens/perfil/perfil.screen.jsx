@@ -6,9 +6,9 @@ export function PerfilScreen() {
     const [usuario, setUsuario] = useGlobalUsuario();
 
     return (
-        <>
-            <NavListComponent />
+        <div className="perfil-screen">
+            {/* <NavListComponent /> */}
             <UsuarioComponent usuario={usuario} />
-        </>
+        </div>
     )
 }
