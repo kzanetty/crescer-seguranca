@@ -1,4 +1,4 @@
-package br.com.cwi.apiseguranca.security.controller;
+package br.com.cwi.apiseguranca.controller;
 
 import br.com.cwi.apiseguranca.controller.response.UsuarioResponse;
 import br.com.cwi.apiseguranca.security.service.UsuarioAutenticadoService;
