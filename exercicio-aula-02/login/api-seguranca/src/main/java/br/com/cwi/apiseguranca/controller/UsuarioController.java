@@ -26,7 +26,7 @@ public class UsuarioController {
 
     @PostMapping
     @ResponseStatus(CREATED)
-    public UsuarioResponse criarUsuario(@RequestBody CriarUsuarioRequest usuarioRequest) {
+    public UsuarioResponse criarUsuario(@Valid @RequestBody CriarUsuarioRequest usuarioRequest) {
         return criarUsuarioService.criarUsuario(usuarioRequest);
     }
 

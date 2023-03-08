@@ -2,7 +2,6 @@ import './card-usuario.component.css'
 import { exibirDataEHora } from '../../../utils'
 
 export function UsuarioComponent({ usuario }) {
-
     return (
         <div className="card-usuario">
             <div className="card-informacoes-usuario">
@@ -16,7 +15,7 @@ export function UsuarioComponent({ usuario }) {
                     <p>Função: {usuario?.funcao}</p>
                 </div>
                 <div className="imagem-usuario">
-                    <img src={usuario?.foto} alt="imagem de usuario" />
+                    <img src={usuario.foto} alt="imagem de usuario" />
                 </div>
             </div>
         </div>

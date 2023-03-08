@@ -20,7 +20,12 @@ public class CriarUsuarioService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    private ValidarSeEmailJaExisteService validarSeEmailJaExisteService;
+
     public UsuarioResponse criarUsuario(CriarUsuarioRequest usuarioRequest) {
+        validarSeEmailJaExisteService.validar(usuarioRequest.getEmail());
+
         Usuario usuario = UsuarioMapper.toEntity(usuarioRequest);
         usuario.setSenha(getSenhaCriptografada(usuarioRequest.getSenha()));
         usuario.setCriadoEm(LocalDateTime.now());
