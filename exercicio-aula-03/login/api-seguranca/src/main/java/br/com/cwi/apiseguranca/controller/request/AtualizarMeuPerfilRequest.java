@@ -10,8 +10,6 @@ import javax.validation.constraints.NotNull;
 @Setter
 public class AtualizarMeuPerfilRequest {
 
-    @NotNull
-    private Long id;
     @NotBlank
     private String nome;
     @NotBlank
