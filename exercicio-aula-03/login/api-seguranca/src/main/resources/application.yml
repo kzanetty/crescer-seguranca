@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/login
+    username: postgres
+    password: 1234
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        # format_sql: true
+
+
+  mail:
+    host: email-smtp.us-east-1.amazonaws.com
+    username: ****************
+    password: ********************
+    properties:
+      mail:
+        transport.protocol: smtp
+        smtp:
+          port: 25
+          auth: true
+          starttls.enable: true
+          starttls.required: true
+          ssl.trust: email-smtp.us-east-1.amazonaws.com
+
+
+logging:
+  level:
+    org:
+      hibernate:
+        type: trace
+
