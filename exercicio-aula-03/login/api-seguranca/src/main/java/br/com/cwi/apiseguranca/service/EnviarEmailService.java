@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 public class EnviarEmailService {
 
     private final String EMAIL_FROM ="***********loy@gmail.com";
-    private final String EMAIL_TO ="*************2@gmail.com";
+    private final String EMAIL_TO ="************2@gmail.com";
 
     @Autowired
     private EmailRepository emailRepository;
