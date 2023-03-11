@@ -4,6 +4,8 @@ import {
   CreateAccountScreen,
   PerfilScreen,
   EditarPerfilScreen,
+  EsqueceuSenhaScreen,
+  RedefinirSenhaScreen,
 } from "../ui/screens";
 import { PrivateRoute } from "./private-router.component";
 
@@ -11,6 +13,14 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <LoginScreen />,
+  },
+  {
+    path: "/forget",
+    element: <EsqueceuSenhaScreen />,
+  },
+  {
+    path: "/reset",
+    element: <RedefinirSenhaScreen />,
   },
   {
     path: "/create",

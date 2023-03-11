@@ -11,4 +11,6 @@ public class AtualizarMinhaSenhaRequest {
 
     @NotBlank
     private String senha;
+
+    private String token;
 }

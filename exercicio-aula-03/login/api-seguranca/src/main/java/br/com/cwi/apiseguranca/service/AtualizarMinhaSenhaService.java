@@ -51,7 +51,7 @@ public class AtualizarMinhaSenhaService {
         enviarEmailRequest.setTitulo(MENSAGEM_PADRAO_TITULO);
         enviarEmailRequest.setMensagem(MENSAGEM_PADRAO_MENSAGEM);
 
-//        enviarEmailService.enviar(enviarEmailRequest);
+        enviarEmailService.enviar(enviarEmailRequest);
 
         return UsuarioMapper.toResponse(usuario);
     }

@@ -8,6 +8,7 @@ import br.com.cwi.apiseguranca.service.AtualizarMeuPerfilService;
 import br.com.cwi.apiseguranca.service.AtualizarMinhaSenhaService;
 import br.com.cwi.apiseguranca.service.CriarUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -32,12 +33,6 @@ public class UsuarioController {
     @ResponseStatus(CREATED)
     public UsuarioResponse criarUsuario(@Valid @RequestBody CriarUsuarioRequest usuarioRequest) {
         return criarUsuarioService.criarUsuario(usuarioRequest);
-    }
-
-    @GetMapping("/listar")
-    @ResponseStatus(ACCEPTED)
-    public String testarLogar() {
-        return "Você está logado";
     }
 
     @PostMapping("/atualizar")

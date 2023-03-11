@@ -49,7 +49,6 @@ export function EditarPerfilScreen() {
             <NavListComponent />
             <div className="container-screen-editar">
 
-
                 {
                     (visibilidade) ?
                         <form onSubmit={handleSubmitSenha} className="formulario-alterar-usuario">
@@ -113,9 +112,13 @@ export function EditarPerfilScreen() {
                 }
                 {
                     (visibilidade) ?
-                        <ButtonComponent texto="Senha" onClick={mudarVisibilidade} />
+                        <div className="alterar-conteudo-modificar">
+                            <ButtonComponent texto="Modificar os dados basicos" onClick={mudarVisibilidade} />
+                        </div>
                         :
-                        <ButtonComponent texto="Dados básicos" onClick={mudarVisibilidade} />
+                        <div className="alterar-conteudo-modificar">
+                            <ButtonComponent texto="Modificar a senha" onClick={mudarVisibilidade} />
+                        </div>
                 }
             </div>
         </>

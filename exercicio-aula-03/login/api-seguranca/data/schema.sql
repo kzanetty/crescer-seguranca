@@ -13,6 +13,7 @@ CREATE TABLE usuario (
 	criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	atualizado_em TIMESTAMP,
 	ativo BOOLEAN NOT null,
+	reset_password_token varchar(50)
 	CONSTRAINT check_usuario_funcao check (funcao in ('ADMIN', 'USER'))
 );
 

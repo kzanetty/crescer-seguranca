@@ -7,12 +7,12 @@ spring:
     properties:
       hibernate:
         show_sql: true
-        # format_sql: true
 
+  # amazon AWS
   mail:
     host: email-smtp.us-east-1.amazonaws.com
-    username: **************************
-    password: *************************
+    username: ${{ secrets.USERNAME_AWS }}
+    password: ${{ secrets.PASSWORD_AWS }}
     properties:
       mail:
         transport.protocol: smtp
@@ -29,4 +29,3 @@ logging:
     org:
       hibernate:
         type: trace
-

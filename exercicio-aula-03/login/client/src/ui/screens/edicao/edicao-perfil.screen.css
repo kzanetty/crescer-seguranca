@@ -49,3 +49,9 @@
 .textarea-formulario:focus {
   background-color: #c9c5c5;
 }
+
+.alterar-conteudo-modificar {
+  position: absolute;
+  top: 10%;
+  right: 0;
+}

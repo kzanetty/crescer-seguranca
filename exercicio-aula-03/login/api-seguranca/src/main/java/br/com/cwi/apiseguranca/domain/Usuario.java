@@ -29,4 +29,6 @@ public class Usuario {
     private LocalDateTime atualizadoEm;
     private boolean ativo;
 
+    private String resetPasswordToken;
+
 }

@@ -7,8 +7,8 @@ import './login.screen.css'
 import { ButtonComponent, showToast } from "../../components";
 
 export function LoginScreen() {
-    const [email, setEmail] = useState("puma@cwi.com.br");
-    const [senha, setSenha] = useState("12345");
+    const [email, setEmail] = useState();
+    const [senha, setSenha] = useState();
     const [usuario, setUsuario] = useGlobalUsuario();
     const navigate = useNavigate();
 
@@ -20,6 +20,10 @@ export function LoginScreen() {
         } catch (error) {
             showToast({ type: "error", message: "Erro ao tentar fazer login." });
         }
+    }
+
+    function redefinirSenhaEsquecida() {
+        navigate("/forget")
     }
 
     useEffect(() => {
@@ -53,6 +57,7 @@ export function LoginScreen() {
                     />
                     <br />
                     <ButtonComponent onClick={handleLogar} texto="login" />
+                    <button onClick={redefinirSenhaEsquecida}>Esqueceu sua senha?</button>
                 </div>
             </div>
         </>

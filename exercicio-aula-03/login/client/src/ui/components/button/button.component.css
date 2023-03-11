@@ -9,7 +9,6 @@
   background-color: #b4b2b2;
 }
 
-.button-component:hover,
-.button-component:focus {
-  background-color: #0a0a0a11;
+.button-component:hover {
+  background-color: white;
 }
