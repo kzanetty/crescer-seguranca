@@ -22,8 +22,8 @@ import java.time.LocalDateTime;
 @Service
 public class EnviarEmailService {
 
-    private final String EMAIL_FROM ="pumadeploy@gmail.com";
-    private final String EMAIL_TO ="hzanettik12@gmail.com";
+    private final String EMAIL_FROM ="***********loy@gmail.com";
+    private final String EMAIL_TO ="************2@gmail.com";
 
     @Autowired
     private EmailRepository emailRepository;
