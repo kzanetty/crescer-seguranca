@@ -8,21 +8,6 @@ spring:
       hibernate:
         show_sql: true
 
-  # amazon AWS
-#  mail:
-#    host: email-smtp.us-east-1.amazonaws.com
-#    username: ${{ secrets.USERNAME_AWS }}
-#    password: ${{ secrets.PASSWORD_AWS }}
-#    properties:
-#      mail:
-#        transport.protocol: smtp
-#        smtp:
-#          port: 25
-#          auth: true
-#          starttls.enable: true
-#          starttls.required: true
-#          ssl.trust: email-smtp.us-east-1.amazonaws.com
-
   mail:
     host: smtp.gmail.com
     port: 587

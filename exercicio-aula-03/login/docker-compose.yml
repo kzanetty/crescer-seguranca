@@ -1,0 +1,49 @@
+version: "3.1"
+
+services:
+  PostgreSQL:
+    image: postgres:latest
+    container_name: login-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=login
+    volumes:
+      - postgresdb_volume:/var/lib/postgresql/data
+      - ./api-seguranca/data/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api:
+    container_name: login-backend
+    build:
+      context: .
+      dockerfile: ./api-seguranca/Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      PostgreSQL:
+        condition: service_healthy
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://PostgreSQL:5432/login
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=1234
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=validate
+
+  front:
+    container_name: login-frontend
+    build:
+      context: .
+      dockerfile: ./client/Dockerfile
+    depends_on:
+      - api
+    ports:
+      - "3000:3000"
+
+volumes:
+  postgresdb_volume:
