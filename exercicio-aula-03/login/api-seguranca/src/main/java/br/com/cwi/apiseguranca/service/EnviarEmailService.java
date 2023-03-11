@@ -10,6 +10,8 @@ import br.com.cwi.apiseguranca.repository.EmailRepository;
 import br.com.cwi.apiseguranca.repository.UsuarioRepository;
 import br.com.cwi.apiseguranca.security.service.UsuarioAutenticadoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
@@ -22,8 +24,10 @@ import java.time.LocalDateTime;
 @Service
 public class EnviarEmailService {
 
-    private final String EMAIL_FROM ="***********loy@gmail.com";
-    private final String EMAIL_TO ="************2@gmail.com";
+    private final static String PATH_ENVIRONMENT_EMAIL = "spring.mail.username";
+
+    @Autowired
+    private Environment env;
 
     @Autowired
     private EmailRepository emailRepository;
@@ -43,14 +47,14 @@ public class EnviarEmailService {
 
         Email email = EmailMapper.toEntity(request);
         email.setRemetente(usuario.getNome());
-        email.setEmailFrom(EMAIL_FROM);
-        email.setEmailTo(EMAIL_TO);
+        email.setEmailFrom(env.getProperty(PATH_ENVIRONMENT_EMAIL));
+        email.setEmailTo(usuario.getEmail());
         email.setEnviadoEm(LocalDateTime.now());
 
         try {
             SimpleMailMessage message = new SimpleMailMessage();
-            message.setFrom(EMAIL_FROM);
-            message.setTo(EMAIL_TO);
+            message.setFrom(env.getProperty(PATH_ENVIRONMENT_EMAIL));
+            message.setTo(usuario.getEmail());
             message.setSubject(request.getTitulo());
             message.setText(request.getMensagem());
 
@@ -70,18 +74,17 @@ public class EnviarEmailService {
         Usuario usuario = usuarioRepository.findByEmail(emailTo)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Usuario não encontrado por esse email."));
 
-
         Email email = new Email();
         email.setTitulo(titulo);
         email.setMensagem(conteudo);
         email.setRemetente(usuario.getNome());
-        email.setEmailFrom(EMAIL_FROM);
+        email.setEmailFrom(env.getProperty(PATH_ENVIRONMENT_EMAIL));
         email.setEmailTo(emailTo);
         email.setEnviadoEm(LocalDateTime.now());
 
         try {
             SimpleMailMessage message = new SimpleMailMessage();
-            message.setFrom(EMAIL_FROM);
+            message.setFrom(env.getProperty(PATH_ENVIRONMENT_EMAIL));
             message.setTo(emailTo);
             message.setSubject(titulo);
             message.setText(conteudo);
