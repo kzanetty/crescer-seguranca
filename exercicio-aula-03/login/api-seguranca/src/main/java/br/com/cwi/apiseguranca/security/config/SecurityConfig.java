@@ -1,6 +1,7 @@
 package br.com.cwi.apiseguranca.security.config;
 
 
+import br.com.cwi.apiseguranca.security.domain.enums.Funcao;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -35,8 +36,6 @@ public class SecurityConfig {
                         .antMatchers(POST, "/reset").permitAll()
                         .antMatchers(POST, "/reset/update").permitAll()
                         .antMatchers(GET, "/reset").permitAll()
-                        .antMatchers("/*/**/publico").permitAll()
-
                 .and()
                     .authorizeRequests()
                         .anyRequest().authenticated()

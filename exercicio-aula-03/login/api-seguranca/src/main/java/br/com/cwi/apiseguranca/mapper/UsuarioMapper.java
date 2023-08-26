@@ -1,9 +1,10 @@
 package br.com.cwi.apiseguranca.mapper;
 
-import br.com.cwi.apiseguranca.controller.request.AtualizarMeuPerfilRequest;
 import br.com.cwi.apiseguranca.controller.request.CriarUsuarioRequest;
 import br.com.cwi.apiseguranca.controller.response.UsuarioResponse;
 import br.com.cwi.apiseguranca.domain.Usuario;
+
+import java.util.stream.Collectors;
 
 public class UsuarioMapper {
 
@@ -13,7 +14,6 @@ public class UsuarioMapper {
         usuario.setEmail(usuarioRequest.getEmail());
         usuario.setTelefone(usuarioRequest.getTelefone());
         usuario.setFoto(usuarioRequest.getFoto());
-        usuario.setFuncao(usuarioRequest.getFuncao());
         return usuario;
     }
 
@@ -25,11 +25,12 @@ public class UsuarioMapper {
                 .email(usuario.getEmail())
                 .telefone(usuario.getTelefone())
                 .foto(usuario.getFoto())
-                .funcao(usuario.getFuncao())
                 .criadoEm(usuario.getCriadoEm())
                 .atualizadoEm(usuario.getAtualizadoEm())
                 .ativo(usuario.isAtivo())
+                .permissoes(usuario.getPermissoes().stream()
+                        .map(PermissaoMapper::toResponse)
+                        .collect(Collectors.toList()))
                 .build();
     }
-
 }

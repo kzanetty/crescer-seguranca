@@ -15,6 +15,7 @@ import javax.validation.Valid;
 
 import static org.springframework.http.HttpStatus.*;
 
+
 @RestController
 @RequestMapping("/usuarios")
 public class UsuarioController {

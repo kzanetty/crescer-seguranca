@@ -1,13 +1,12 @@
 package br.com.cwi.apiseguranca.security.config;
 
-
 import br.com.cwi.apiseguranca.domain.Usuario;
 import lombok.Getter;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Getter
 public class UsuarioSecurity implements UserDetails {
@@ -33,6 +32,8 @@ public class UsuarioSecurity implements UserDetails {
         this.credentialsNonExpired = usuario.isAtivo();
         this.enabled = usuario.isAtivo();
 
-        this.authorities = new ArrayList();
+        this.authorities = usuario.getPermissoes().stream()
+                .map(permissao -> new SimpleGrantedAuthority(permissao.getFuncao().getRole()))
+                .collect(Collectors.toList());
     }
 }

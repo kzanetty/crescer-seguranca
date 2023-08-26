@@ -1,9 +1,10 @@
 package br.com.cwi.apiseguranca.controller.response;
 
-import br.com.cwi.apiseguranca.domain.enums.Funcao;
+import br.com.cwi.apiseguranca.security.domain.Permissao;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -17,8 +18,9 @@ public class UsuarioResponse {
     private String email;
     private String telefone;
     private String foto;
-    private Funcao funcao;
     private LocalDateTime criadoEm;
     private LocalDateTime atualizadoEm;
     private boolean ativo;
+
+    private List<PermissaoResponse> permissoes;
 }

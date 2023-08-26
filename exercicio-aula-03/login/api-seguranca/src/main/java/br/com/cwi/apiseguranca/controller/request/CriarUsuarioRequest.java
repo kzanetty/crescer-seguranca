@@ -1,6 +1,6 @@
 package br.com.cwi.apiseguranca.controller.request;
 
-import br.com.cwi.apiseguranca.domain.enums.Funcao;
+import br.com.cwi.apiseguranca.security.domain.Permissao;
 import lombok.*;
 
 import javax.validation.constraints.Email;
@@ -25,6 +25,4 @@ public class CriarUsuarioRequest {
     private String senha;
     @NotBlank
     private String foto;
-    @NotNull
-    private Funcao funcao;
 }

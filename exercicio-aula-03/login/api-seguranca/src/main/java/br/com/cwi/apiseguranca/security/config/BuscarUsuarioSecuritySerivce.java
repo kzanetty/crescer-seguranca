@@ -15,7 +15,6 @@ public class BuscarUsuarioSecuritySerivce implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-
         return usuarioRepository.findByEmail(email)
                 .map(UsuarioSecurity::new)
                 .orElseThrow(() -> new UsernameNotFoundException("Credenciais inválidas"));
